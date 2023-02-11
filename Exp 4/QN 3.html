@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form style="text-align: center;" action="none">
+    <label for="first">Enter String</label>
+    <input id="first" type="text"><br><br>
+    <label for="second">After Swap</label>
+    <input type="text" id="second"><br><br>
+    <button type="button" onclick="convert()">Convert</button>
+    </form>
+
+</body>
+<script>
+    {
+        function convert()
+        {
+            var sen = document.getElementById("first").value;
+            var final_sen= sen.replace(/(\w)|(\s+\w)/g, function (letter){
+        var format = /^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/;
+            if (letter >= "A" && letter <= "Z")
+                return letter.toLowerCase();
+        else if (letter >= "a" && letter <= "z")
+                return letter.toUpperCase();
+        else if (letter.match(format) || letter.match(" "))
+                return "";
+        });
+        document.getElementById("second").value=(final_sen);
+        document.getElementById("ptag").innerHTML=(final_sen); 
+        }
+        
+    }
+</script>
+</html>
